@@ -1,5 +1,6 @@
 package com.codeBuffer.CodeBuffer.controller;
 
+import com.codeBuffer.CodeBuffer.Error.DepartmentNotFoundException;
 import com.codeBuffer.CodeBuffer.entity.Department;
 import com.codeBuffer.CodeBuffer.service.DepartmentService;
 import com.codeBuffer.CodeBuffer.service.DepartmentServiceImpl;
@@ -36,7 +37,7 @@ public class DepartmentController {
         // fetching department by id
     // use path variable to map the Ids to each other
         @GetMapping("/departments/{id}")
-        public Department fetchDepartmentById(@PathVariable("id") Long departmentId){
+        public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
               return departmentService.fetchDepartmentById(departmentId);
         }
 // deleting from the database by mapping
